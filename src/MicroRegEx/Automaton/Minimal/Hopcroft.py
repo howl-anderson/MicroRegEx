@@ -1,0 +1,3 @@
+class Hopcroft:
+    # TODO
+    pass

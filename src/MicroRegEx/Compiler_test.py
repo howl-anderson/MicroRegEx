@@ -1,6 +1,6 @@
 import unittest
 
-from src.MicroRegEx.Compiler import Compiler
+from MicroRegEx.Compiler import Compiler
 
 
 class TestCompiler(unittest.TestCase):
@@ -19,7 +19,7 @@ class TestCompiler(unittest.TestCase):
         result = regex.match("abcd")
         self.assertEqual(result, False)
 
-    def test_midlle_case(self):
+    def test_middle_case(self):
         pattern = r"(ab|a)(bc|c)"
         print("Pattern: {}".format(pattern))
 

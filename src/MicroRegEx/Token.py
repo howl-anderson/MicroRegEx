@@ -1,5 +1,3 @@
-
-
 class Token:
     def __init__(self, token, value=None):
         self.token = token

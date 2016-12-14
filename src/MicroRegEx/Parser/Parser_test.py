@@ -1,7 +1,7 @@
 import unittest
 
-from src.MicroRegEx.Lexer import Lexer
-from src.MicroRegEx.Parser import Parser
+from MicroRegEx.Lexer import Lexer
+from MicroRegEx.Parser import Parser
 
 
 class TestParser(unittest.TestCase):
@@ -19,8 +19,7 @@ class TestParser(unittest.TestCase):
 
         self.assertEqual(1, 2)
 
-
-    def test_midlle_case(self):
+    def test_middle_case(self):
         pattern = r"(ab|a)(bc|c)"
         print("Pattern: {}".format(pattern))
 

@@ -1,13 +1,13 @@
-from src.MicroRegEx.Lexer import (
+from MicroRegEx.Automaton.NFA import NFA
+from MicroRegEx.Automaton.Status import Status
+from MicroRegEx.Lexer import (
     ASTERISK,
     QUESTION,
     PLUS,
     BAR,
     CHARACTER
 )
-from src.MicroRegEx.NFA import NFA
-from src.MicroRegEx.Parser import CONCATENATE
-from src.MicroRegEx.Status import Status
+from MicroRegEx.Parser import CONCATENATE
 
 
 class TokenToNFA:
@@ -34,16 +34,22 @@ class TokenToNFA:
     def char_nfa(self, token):
         start_status = Status()
         end_status = Status()
-        start_status.translation[token.value] = end_status
+        start_status.translate(token.value, end_status)
         end_status.accept = True
         nfa = NFA(start_status, end_status)
         self.nfa_stack.append(nfa)
 
     def asterisk_nfa(self):
+        start_status = Status()
+        end_status = Status()
         nfa = self.nfa_stack.pop()
-        nfa.start.epsilon.append(nfa.end)
+        start_status.epsilon.append(nfa.start)
+        nfa.end.accept = False
+        end_status.accept = True
         nfa.end.epsilon.append(nfa.start)
-        self.nfa_stack.append(nfa)
+        nfa.end.epsilon.append(end_status)
+        start_status.epsilon.append(end_status)
+        self.nfa_stack.append(NFA(start_status, end_status))
 
     def question_nfa(self):
         nfa = self.nfa_stack.pop()
@@ -51,9 +57,15 @@ class TokenToNFA:
         self.nfa_stack.append(nfa)
 
     def plus_nfa(self):
+        start_status = Status()
+        end_status = Status()
+        end_status.accept = True
         nfa = self.nfa_stack.pop()
+        nfa.end.accept = False
         nfa.end.epsilon.append(nfa.start)
-        self.nfa_stack.append(nfa)
+        start_status.epsilon.append(nfa.start)
+        nfa.end.epsilon.append(end_status)
+        self.nfa_stack.append(NFA(start_status, end_status))
 
     def bar_nfa(self):
         nfa_last = self.nfa_stack.pop()

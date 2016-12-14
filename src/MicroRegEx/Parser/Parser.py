@@ -1,4 +1,4 @@
-from src.MicroRegEx.Lexer import (
+from MicroRegEx.Lexer import (
     ASTERISK,
     QUESTION,
     PLUS,
@@ -7,8 +7,8 @@ from src.MicroRegEx.Lexer import (
     CLOSE_PARENTHESIS,
     CHARACTER
 )
-from src.MicroRegEx.PatternSyntaxError import PatternSyntaxError
-from src.MicroRegEx.Token import Token
+from MicroRegEx.PatternSyntaxError import PatternSyntaxError
+from MicroRegEx.Token import Token
 
 CONCATENATE = 'concatenate'
 
@@ -38,14 +38,14 @@ class Parser:
 
     def state(self):
         self.term()
-        self.concate()
+        self.concatenate()
 
-    def concate(self):
+    def concatenate(self):
         if self.token is not None:
             if self.token.token in (CHARACTER, OPEN_PARENTHESIS):
                 self.term()
                 self.postfix.append(Token(CONCATENATE))
-                self.concate()
+                self.concatenate()
             else:
                 return  # epsilon
         else:

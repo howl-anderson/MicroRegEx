@@ -1,5 +1,5 @@
-from src.MicroRegEx.PatternSyntaxError import PatternSyntaxError
-from src.MicroRegEx.Token import Token
+from MicroRegEx.PatternSyntaxError import PatternSyntaxError
+from MicroRegEx.Token import Token
 
 ASTERISK = 'ASTERISK'
 QUESTION = 'QUESTION'
