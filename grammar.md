@@ -16,13 +16,13 @@ other: subpattern
      | ϵ
      ;
 
-element: atom postfix;
+element: atom meta_character;
 
-postfix: '?'
-       | '+'
-       | '*'
-       | ϵ
-       ;
+meta_character: '?'
+              | '+'
+              | '*'
+              | ϵ
+              ;
 
 atom: '(' pattern ')'
     | character

@@ -1,7 +1,6 @@
 import unittest
 
-from MicroRegEx.Lexer import CHARACTER
-from MicroRegEx.Token import Token
+from MicroRegEx.Token import Token, CHARACTER
 from MicroRegEx.TokenToNFA import TokenToNFA
 
 

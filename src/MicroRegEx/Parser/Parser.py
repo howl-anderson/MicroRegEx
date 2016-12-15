@@ -1,16 +1,6 @@
-from MicroRegEx.Lexer import (
-    ASTERISK,
-    QUESTION,
-    PLUS,
-    BAR,
-    OPEN_PARENTHESIS,
-    CLOSE_PARENTHESIS,
-    CHARACTER
-)
 from MicroRegEx.PatternSyntaxError import PatternSyntaxError
-from MicroRegEx.Token import Token
-
-CONCATENATE = 'concatenate'
+from MicroRegEx.Token import Token, CONCATENATE, ASTERISK, QUESTION, PLUS, BAR, OPEN_PARENTHESIS, CLOSE_PARENTHESIS, \
+    CHARACTER
 
 
 class Parser:

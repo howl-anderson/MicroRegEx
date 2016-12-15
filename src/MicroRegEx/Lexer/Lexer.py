@@ -1,13 +1,5 @@
 from MicroRegEx.PatternSyntaxError import PatternSyntaxError
-from MicroRegEx.Token import Token
-
-ASTERISK = 'ASTERISK'
-QUESTION = 'QUESTION'
-PLUS = 'PLUS'
-BAR = 'BAR'
-OPEN_PARENTHESIS = 'OPEN_PARENTHESIS'
-CLOSE_PARENTHESIS = 'CLOSE_PARENTHESIS'
-CHARACTER = 'CHARACTER'
+from MicroRegEx.Token import Token, ASTERISK, QUESTION, PLUS, BAR, OPEN_PARENTHESIS, CLOSE_PARENTHESIS, CHARACTER
 
 
 class Lexer:
@@ -90,3 +82,6 @@ class Lexer:
         else:
             self.token_index += 1
             return self.tokens[self.token_index]
+
+    def get_tokens(self):
+        return self.tokens

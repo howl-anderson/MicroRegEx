@@ -7,7 +7,7 @@ from MicroRegEx.Lexer import (
     BAR,
     CHARACTER
 )
-from MicroRegEx.Parser import CONCATENATE
+from MicroRegEx.Token import CONCATENATE, ASTERISK, QUESTION, PLUS, BAR, CHARACTER
 
 
 class TokenToNFA:
