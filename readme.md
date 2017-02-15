@@ -9,6 +9,83 @@ MicroRegEx is a micro regular expression engine.
 * `(expr)` - treat the `expr` as an atom
 * `\` - escape characters
 
+## Usage
+### Use like python built-in regex
+```python
+import MicroRegEx
+
+regex = MicroRegEx.compile("(a|b)cd*e?")
+result = regex.match("abcde")
+print(result)
+
+result = regex.match("acde")
+print(result)
+```
+
+will output:
+```text
+False
+True
+```
+
+### Plot NFA
+```python
+import MicroRegEx
+
+regex = MicroRegEx.compile("(a|b)c?")
+regex.plot()
+```
+
+will plot graph as fellow:
+![NFA](img/nfa.png)
+
+### Translate to DFA
+#### NFA to DFA
+##### Native DFA
+```python
+import MicroRegEx
+from MicroRegEx.Automaton.NFA2DFA import NFA2DFA
+
+nfa = MicroRegEx.compile("(a|b)c?")
+
+dfa = NFA2DFA(nfa).convert()
+dfa.plot()
+```
+
+will plot graph as fellow:
+![DFA_native](img/dfa_native.png)
+
+##### Simplified DFA
+```python
+import MicroRegEx
+from MicroRegEx.Automaton.NFA2DFA import NFA2DFA
+
+nfa = MicroRegEx.compile("(a|b)c?")
+
+dfa = NFA2DFA(nfa).convert().simplify()
+dfa.plot()
+```
+
+will plot graph as fellow:
+![DFA_simplified](img/dfa_simplified.png)
+
+#### DFA minimization
+##### Brzozowski method
+```python
+import MicroRegEx
+from MicroRegEx.Automaton.NFA2DFA import NFA2DFA
+from MicroRegEx.Automaton.Minimal.Brzozowski import Brzozowski
+
+nfa = MicroRegEx.compile("(a|b)c?")
+
+dfa = NFA2DFA(nfa).convert().simplify()
+mini_dfa = Brzozowski(dfa).construct()
+mini_dfa.plot()
+```
+
+will plot graph as fellow:
+![DFA_mini](img/dfa_mini.png)
+
 ## Acknowledge & Credits
 1. Inspire by the [regex](https://github.com/xysun/regex) project of [xysun](https://github.com/xysun)
 2. Some Documents from [regular\_expression\_engine](https://github.com/lihao98722/regular_expression_engine) project of [lihao98722](https://github.com/lihao98722/)
