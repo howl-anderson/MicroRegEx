@@ -42,7 +42,7 @@ class NFA:
         for status in self.current_status:
             if char_ in status.translation:
                 next_status = status.translation[char_]
-                new_status.add(next_status)
+                new_status.update(next_status)
         self.current_status = new_status
 
     def plot(self, file_name=None):
