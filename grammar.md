@@ -1,9 +1,9 @@
 ## The grammar in MicroRegEx
-The grammar descriptor will based on yacc-style CFG (Content free Grammar):
+The grammar descriptor will based on yacc-style CFG (Content Free Grammar):
 
-```text
+```
 expression: pattern;
-          
+
 pattern: subpattern postpattern;
 
 postpattern: '|' subpattern postpattern
