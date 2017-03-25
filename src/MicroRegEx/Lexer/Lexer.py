@@ -1,5 +1,7 @@
 from MicroRegEx.PatternSyntaxError import PatternSyntaxError
-from MicroRegEx.Token import Token, ASTERISK, QUESTION, PLUS, BAR, OPEN_PARENTHESIS, CLOSE_PARENTHESIS, CHARACTER
+from MicroRegEx.Token import Token
+from MicroRegEx.Token import (ASTERISK, QUESTION, PLUS, BAR, OPEN_PARENTHESIS,
+                              CLOSE_PARENTHESIS, CHARACTER)
 
 
 class Lexer:
@@ -69,7 +71,8 @@ class Lexer:
                         Token(CHARACTER, '\\')
                     )
                 else:
-                    raise PatternSyntaxError("\\" + char_ + " is not unrecognizable.")
+                    raise PatternSyntaxError(
+                        "\\" + char_ + " is not unrecognizable.")
             else:
                 self.tokens.append(
                     Token(CHARACTER, char_)

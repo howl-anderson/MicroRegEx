@@ -1,13 +1,7 @@
 from MicroRegEx.Automaton.NFA import NFA
 from MicroRegEx.Automaton.Status import Status
-from MicroRegEx.Lexer import (
-    ASTERISK,
-    QUESTION,
-    PLUS,
-    BAR,
-    CHARACTER
-)
-from MicroRegEx.Token import CONCATENATE, ASTERISK, QUESTION, PLUS, BAR, CHARACTER
+from MicroRegEx.Token import (CONCATENATE, ASTERISK, QUESTION, PLUS, BAR,
+                              CHARACTER)
 
 
 class TokenToNFA:

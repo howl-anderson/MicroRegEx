@@ -1,6 +1,7 @@
 from MicroRegEx.PatternSyntaxError import PatternSyntaxError
-from MicroRegEx.Token import Token, CONCATENATE, ASTERISK, QUESTION, PLUS, BAR, OPEN_PARENTHESIS, CLOSE_PARENTHESIS, \
-    CHARACTER
+from MicroRegEx.Token import Token
+from MicroRegEx.Token import (CONCATENATE, ASTERISK, QUESTION, PLUS, BAR,
+                              OPEN_PARENTHESIS, CLOSE_PARENTHESIS, CHARACTER)
 
 
 class Parser:
@@ -73,6 +74,7 @@ class Parser:
 
     def _match(self, lookahead):
         if lookahead != self.token.token:
-            raise PatternSyntaxError(("%s don't match %s" % (self.token.token, lookahead)))
+            msg = "%s don't match %s" % (self.token.token, lookahead)
+            raise PatternSyntaxError(msg)
 
         self.token = self.lexer.get_next_token()
