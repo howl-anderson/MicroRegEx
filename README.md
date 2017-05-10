@@ -7,7 +7,7 @@ MicroRegEx is a micro regular expression engine.
 * `?` - optional
 * `a|b` - matches a or b
 * `(expr)` - treat the `expr` as an atom
-* `\` - escape characters
+* `\` - escape character
 
 ## Usage
 ### Use like python built-in regex
