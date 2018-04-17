@@ -1,3 +1,6 @@
+[中文版本的 README](README.zh-Hans.md)
+------------------------------
+
 ## What's MicroRegEx
 MicroRegEx is a micro regular expression engine.
 

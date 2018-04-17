@@ -1,3 +1,6 @@
+[README written in English](README.md)
+------------------------------
+
 ## 什么是MicroRegEx
 MicroRegEx是一个微型的正则表达式引擎.
 
