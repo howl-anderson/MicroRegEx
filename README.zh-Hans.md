@@ -89,6 +89,10 @@ mini_dfa.plot()
 绘制结果如下:
 ![DFA_mini](img/dfa_mini.png)
 
+## License
+
+本项目采用 MIT License - 具体细节见 [LICENSE.md](LICENSE.md) 文件
+
 ## 致谢与荣誉 
 1. 灵感来自[xysun](https://github.com/xysun)的[regex](https://github.com/xysun/regex)项目
 2. 少量部分文档来自[lihao98722](https://github.com/lihao98722/)的[regular\_expression\_engine](https://github.com/lihao98722/regular_expression_engine)项目

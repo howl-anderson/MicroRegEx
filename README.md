@@ -89,6 +89,10 @@ mini_dfa.plot()
 will plot graph as fellow:
 ![DFA_mini](img/dfa_mini.png)
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
 ## Acknowledge & Credits
 1. Inspire by the [regex](https://github.com/xysun/regex) project of [xysun](https://github.com/xysun)
 2. Some Documents from [regular\_expression\_engine](https://github.com/lihao98722/regular_expression_engine) project of [lihao98722](https://github.com/lihao98722/)
