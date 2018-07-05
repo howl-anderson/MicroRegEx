@@ -1,7 +1,7 @@
 [README written in English](README.en-US.md)
 ------------------------------
 
-## 什么是MicroRegEx
+# 什么是MicroRegEx
 MicroRegEx是一个微型的正则表达式引擎.
 
 ## 所支持的Operator列表
@@ -12,7 +12,7 @@ MicroRegEx是一个微型的正则表达式引擎.
 * `(expr)` - 将`expr`作为原子
 * `\` - 转义字符 
 
-## 使用方法 
+# 使用方法 
 ### 像python内建的regex一样使用
 ```python
 import MicroRegEx
@@ -88,6 +88,9 @@ mini_dfa.plot()
 
 绘制结果如下:
 ![DFA_mini](img/dfa_mini.png)
+
+## 测试
+通过了包含 64 个测试样例的测试数据的测试
 
 ## License
 
