@@ -84,4 +84,4 @@ class NFA:
 
         graph.view()
 
-        return None
+        return graph

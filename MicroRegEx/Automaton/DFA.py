@@ -104,4 +104,4 @@ class DFA:
 
         graph.view()
 
-        return None
+        return graph
