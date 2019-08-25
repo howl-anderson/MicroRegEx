@@ -11,7 +11,7 @@ from MicroRegEx.Token import (
 )
 
 
-class RecursiveDescent:
+class RecursiveDescent(object):
     def __init__(self, lexer):
         self.lexer = lexer
         self.token_index = 0

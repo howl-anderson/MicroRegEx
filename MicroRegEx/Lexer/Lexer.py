@@ -11,7 +11,7 @@ from MicroRegEx.Token import (
 )
 
 
-class Lexer:
+class Lexer(object):
     def __init__(self, pattern):
         self.pattern = pattern
         self.tokens = []
