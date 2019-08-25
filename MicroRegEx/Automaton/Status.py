@@ -20,7 +20,9 @@ class Status:
 
     def __str__(self):
         format_str = "<{} translation={} epsilon={} accept={}>"
-        return format_str.format(str(self.name),
-                                 repr(self.translation),
-                                 repr(self.epsilon),
-                                 repr(self.accept))
+        return format_str.format(
+            str(self.name),
+            repr(self.translation),
+            repr(self.epsilon),
+            repr(self.accept),
+        )

@@ -73,13 +73,13 @@ class DFA:
 
             return "doublecircle" if accept else "circle"
 
-        graph = Digraph('finite_state_machine', filename=file_name or 'dfa')
-        graph.body.extend(['rankdir=LR', 'size="8,5"'])
+        graph = Digraph("finite_state_machine", filename=file_name or "dfa")
+        graph.body.extend(["rankdir=LR", 'size="8,5"'])
 
         graph.node("", label="", shape="None", color="white")
 
         graph.node(self.start.name, shape=_shape(self.start))
-        graph.edge("", self.start.name, label='')
+        graph.edge("", self.start.name, label="")
 
         relation_list = []
         status_list = [self.start]

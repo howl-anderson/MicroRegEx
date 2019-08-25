@@ -1,7 +1,15 @@
 from MicroRegEx.PatternSyntaxError import PatternSyntaxError
 from MicroRegEx.Token import Token
-from MicroRegEx.Token import (CONCATENATE, ASTERISK, QUESTION, PLUS, BAR,
-                              OPEN_PARENTHESIS, CLOSE_PARENTHESIS, CHARACTER)
+from MicroRegEx.Token import (
+    CONCATENATE,
+    ASTERISK,
+    QUESTION,
+    PLUS,
+    BAR,
+    OPEN_PARENTHESIS,
+    CLOSE_PARENTHESIS,
+    CHARACTER,
+)
 
 
 class Parser:

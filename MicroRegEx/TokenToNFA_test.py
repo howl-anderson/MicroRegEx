@@ -10,7 +10,7 @@ class TestTokenToNFA(unittest.TestCase):
 
     def test_asterisk_nfa(self):
         token_to_nfa = TokenToNFA([])
-        token_to_nfa.char_nfa(Token(CHARACTER, 'a'))
+        token_to_nfa.char_nfa(Token(CHARACTER, "a"))
         token_to_nfa.asterisk_nfa()
         nfa = token_to_nfa.nfa_stack[0]
 
@@ -25,7 +25,7 @@ class TestTokenToNFA(unittest.TestCase):
 
     def test_question_nfa(self):
         token_to_nfa = TokenToNFA([])
-        token_to_nfa.char_nfa(Token(CHARACTER, 'a'))
+        token_to_nfa.char_nfa(Token(CHARACTER, "a"))
         token_to_nfa.question_nfa()
         nfa = token_to_nfa.nfa_stack[0]
 
@@ -40,7 +40,7 @@ class TestTokenToNFA(unittest.TestCase):
 
     def test_plus_nfa(self):
         token_to_nfa = TokenToNFA([])
-        token_to_nfa.char_nfa(Token(CHARACTER, 'a'))
+        token_to_nfa.char_nfa(Token(CHARACTER, "a"))
         token_to_nfa.plus_nfa()
         nfa = token_to_nfa.nfa_stack[0]
 
@@ -55,8 +55,8 @@ class TestTokenToNFA(unittest.TestCase):
 
     def test_bar_nfa(self):
         token_to_nfa = TokenToNFA([])
-        token_to_nfa.char_nfa(Token(CHARACTER, 'a'))
-        token_to_nfa.char_nfa(Token(CHARACTER, 'b'))
+        token_to_nfa.char_nfa(Token(CHARACTER, "a"))
+        token_to_nfa.char_nfa(Token(CHARACTER, "b"))
         token_to_nfa.bar_nfa()
         nfa = token_to_nfa.nfa_stack[0]
 
@@ -74,8 +74,8 @@ class TestTokenToNFA(unittest.TestCase):
 
     def test_concatenate_nfa(self):
         token_to_nfa = TokenToNFA([])
-        token_to_nfa.char_nfa(Token(CHARACTER, 'a'))
-        token_to_nfa.char_nfa(Token(CHARACTER, 'b'))
+        token_to_nfa.char_nfa(Token(CHARACTER, "a"))
+        token_to_nfa.char_nfa(Token(CHARACTER, "b"))
         token_to_nfa.concatenate_nfa()
         nfa = token_to_nfa.nfa_stack[0]
 

@@ -1,6 +1,14 @@
 from MicroRegEx.Token import Token
-from MicroRegEx.Token import (CONCATENATE, ASTERISK, QUESTION, PLUS, BAR,
-                              OPEN_PARENTHESIS, CLOSE_PARENTHESIS, CHARACTER)
+from MicroRegEx.Token import (
+    CONCATENATE,
+    ASTERISK,
+    QUESTION,
+    PLUS,
+    BAR,
+    OPEN_PARENTHESIS,
+    CLOSE_PARENTHESIS,
+    CHARACTER,
+)
 
 
 class RecursiveDescent:
@@ -49,8 +57,11 @@ class RecursiveDescent:
             return self.atom_2()
 
     def atom_1(self):
-        return self.term(OPEN_PARENTHESIS) and self.pattern() \
-                                           and self.term(CLOSE_PARENTHESIS)
+        return (
+            self.term(OPEN_PARENTHESIS)
+            and self.pattern()
+            and self.term(CLOSE_PARENTHESIS)
+        )
 
     def atom_2(self):
         return self.term(CHARACTER)

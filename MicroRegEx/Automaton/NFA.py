@@ -49,13 +49,13 @@ class NFA:
         def _shape(status_):
             return "doublecircle" if status_.accept else "circle"
 
-        graph = Digraph('finite_state_machine', filename=file_name or "nfa")
-        graph.body.extend(['rankdir=LR', 'size="8,5"'])
+        graph = Digraph("finite_state_machine", filename=file_name or "nfa")
+        graph.body.extend(["rankdir=LR", 'size="8,5"'])
 
         graph.node("", label="", shape="None", color="white")
 
         graph.node(self.start.name, shape=_shape(self.start))
-        graph.edge("", self.start.name, label='')
+        graph.edge("", self.start.name, label="")
 
         status_set = [self.start]
         plot_set = []
@@ -64,7 +64,7 @@ class NFA:
         while len(work_list):
             current_status = work_list.pop()
 
-            epsilon_status = [('ϵ', i) for i in current_status.epsilon]
+            epsilon_status = [("ϵ", i) for i in current_status.epsilon]
             translation_status = []
             for k, v in current_status.translation.items():
                 translation = zip([k] * len(v), v)

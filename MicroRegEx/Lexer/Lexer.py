@@ -1,7 +1,14 @@
 from MicroRegEx.PatternSyntaxError import PatternSyntaxError
 from MicroRegEx.Token import Token
-from MicroRegEx.Token import (ASTERISK, QUESTION, PLUS, BAR, OPEN_PARENTHESIS,
-                              CLOSE_PARENTHESIS, CHARACTER)
+from MicroRegEx.Token import (
+    ASTERISK,
+    QUESTION,
+    PLUS,
+    BAR,
+    OPEN_PARENTHESIS,
+    CLOSE_PARENTHESIS,
+    CHARACTER,
+)
 
 
 class Lexer:
@@ -15,68 +22,39 @@ class Lexer:
         while index < len(self.pattern):
             char_ = self.pattern[index]
 
-            if char_ == '*':
-                self.tokens.append(
-                    Token(ASTERISK)
-                )
-            elif char_ == '?':
-                self.tokens.append(
-                    Token(QUESTION)
-                )
-            elif char_ == '+':
-                self.tokens.append(
-                    Token(PLUS)
-                )
-            elif char_ == '|':
-                self.tokens.append(
-                    Token(BAR)
-                )
-            elif char_ == '(':
-                self.tokens.append(
-                    Token(OPEN_PARENTHESIS)
-                )
-            elif char_ == ')':
-                self.tokens.append(
-                    Token(CLOSE_PARENTHESIS)
-                )
-            elif char_ == '\\':
+            if char_ == "*":
+                self.tokens.append(Token(ASTERISK))
+            elif char_ == "?":
+                self.tokens.append(Token(QUESTION))
+            elif char_ == "+":
+                self.tokens.append(Token(PLUS))
+            elif char_ == "|":
+                self.tokens.append(Token(BAR))
+            elif char_ == "(":
+                self.tokens.append(Token(OPEN_PARENTHESIS))
+            elif char_ == ")":
+                self.tokens.append(Token(CLOSE_PARENTHESIS))
+            elif char_ == "\\":
                 index += 1
                 char_ = self.pattern[index]
-                if char_ == '*':
-                    self.tokens.append(
-                        Token(CHARACTER, '*')
-                    )
-                elif char_ == '?':
-                    self.tokens.append(
-                        Token(CHARACTER, '?')
-                    )
-                elif char_ == '+':
-                    self.tokens.append(
-                        Token(CHARACTER, '+')
-                    )
-                elif char_ == '|':
-                    self.tokens.append(
-                        Token(CHARACTER, '|')
-                    )
-                elif char_ == '(':
-                    self.tokens.append(
-                        Token(CHARACTER, '(')
-                    )
-                elif char_ == ')':
-                    self.tokens.append(
-                        Token(CHARACTER, ')')
-                    )
-                elif char_ == '\\':
-                    self.tokens.append(
-                        Token(CHARACTER, '\\')
-                    )
+                if char_ == "*":
+                    self.tokens.append(Token(CHARACTER, "*"))
+                elif char_ == "?":
+                    self.tokens.append(Token(CHARACTER, "?"))
+                elif char_ == "+":
+                    self.tokens.append(Token(CHARACTER, "+"))
+                elif char_ == "|":
+                    self.tokens.append(Token(CHARACTER, "|"))
+                elif char_ == "(":
+                    self.tokens.append(Token(CHARACTER, "("))
+                elif char_ == ")":
+                    self.tokens.append(Token(CHARACTER, ")"))
+                elif char_ == "\\":
+                    self.tokens.append(Token(CHARACTER, "\\"))
                 else:
-                    raise PatternSyntaxError(
-                        "\\" + char_ + " is not unrecognizable.")
+                    raise PatternSyntaxError("\\" + char_ + " is not unrecognizable.")
             else:
-                self.tokens.append(
-                    Token(CHARACTER, char_)
-                )
+                self.tokens.append(Token(CHARACTER, char_))
             index += 1
 
     def get_next_token(self):

@@ -8,7 +8,7 @@ class TestRegEx(unittest.TestCase):
             self.text = f.readlines()
 
         for line in self.text:
-            if line.startswith('#'):
+            if line.startswith("#"):
                 #  comment line
                 continue
 
@@ -28,8 +28,8 @@ class TestRegEx(unittest.TestCase):
             print(line, "pass")
 
     def test_basic(self):
-        self.base('test_suite.dat')
+        self.base("test_suite.dat")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

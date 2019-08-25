@@ -14,7 +14,7 @@ class StatusSet(frozenset):
         element = [i.name for i in self]
         element = sorted(element, key=lambda x: int(x))
         for j in range(group_size):
-            group_slice = slice(j*group_size, (j+1)*group_size)
+            group_slice = slice(j * group_size, (j + 1) * group_size)
             element_group = element[group_slice]
             if not element_group:
                 continue
