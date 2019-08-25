@@ -50,7 +50,8 @@ class SetDict(dict):
         if isinstance(value, collections.Sequence) or isinstance(value, set):
             super().__setitem__(key, set(value))
         else:
-            raise ValueError("Not support for %s: %s".format(repr(key), repr(value)))
+            msg = "Not support for %s: %s".format(repr(key), repr(value))
+            raise ValueError(msg)
 
     def extend(self, other: dict):
         for k, v in other.items():

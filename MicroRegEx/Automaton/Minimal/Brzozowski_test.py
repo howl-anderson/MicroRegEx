@@ -11,7 +11,9 @@ from MicroRegEx.PatternSyntaxError import PatternSyntaxError
 class TestBrzozowski(unittest.TestCase):
     def test_simple_case(self):
         # construct nfa
-        pattern = "a(b|c*)"  # "a(b|c)*" | "abc|bc|ad" | "r0|r1|r2|r3|r4|r5|r6|r7|r8|r9" | "(a|b)*abb"
+
+        # "a(b|c)*" | "abc|bc|ad" | "r0|r1|r2|r3|r4|r5|r6|r7|r8|r9" | "(a|b)*abb"
+        pattern = "a(b|c*)"
         lexer = Lexer(pattern)
         lexer.analyse()
 
