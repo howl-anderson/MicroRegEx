@@ -1,2 +1,2 @@
-* Add Jupyter Notebook supporting
-* Restruct project struct for meet python standard
+* [solved but not perfect] Add Jupyter Notebook supporting
+* [TBD] Restruct project struct for meet python standard
