@@ -1,0 +1,3 @@
+# required when you develop this package: Makefile, Jupyter Notebook ...
+pytest
+jupyter
