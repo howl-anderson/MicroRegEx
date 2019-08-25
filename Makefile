@@ -59,6 +59,9 @@ test: ## run tests quickly with the default Python
 fmt: ## format code
 	black .
 
+typecheck:  ## type check
+	pytype .
+
 test-all: ## run tests on every Python version with tox
 	tox
 
