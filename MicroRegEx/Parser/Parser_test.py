@@ -17,8 +17,6 @@ class TestParser(unittest.TestCase):
         for i in postfix_expr:
             print(i)
 
-        self.assertEqual(1, 2)
-
     def test_middle_case(self):
         pattern = r"(ab|a)(bc|c)"
         print("Pattern: {}".format(pattern))
@@ -31,8 +29,6 @@ class TestParser(unittest.TestCase):
         for i in postfix_expr:
             print(i)
 
-        self.assertEqual(1, 2)
-
     def test_complicate_case(self):
         pattern = r"(((d|e)?)|(a+))+"
         print("Pattern: {}".format(pattern))
@@ -44,5 +40,3 @@ class TestParser(unittest.TestCase):
 
         for i in postfix_expr:
             print(i)
-
-        self.assertEqual(1, 2)

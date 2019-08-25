@@ -32,5 +32,3 @@ class TestOnline(unittest.TestCase):
         simplified_dfa = dfa.simplify()
 
         simplified_dfa.plot("simplified_dfa")
-
-        self.assertTrue(0)

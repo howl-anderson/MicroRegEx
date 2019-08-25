@@ -15,8 +15,6 @@ class TestLexer(unittest.TestCase):
         for i in lexemes:
             print(i)
 
-        self.assertEqual(1, 2)
-
     def test_middle_case(self):
         pattern = r"a?b+c*(d|e)\\"
         print("Pattern: {}".format(pattern))
@@ -28,8 +26,6 @@ class TestLexer(unittest.TestCase):
         for i in lexemes:
             print(i)
 
-        self.assertEqual(1, 2)
-
     def test_complicate_case(self):
         pattern = r"(((d|e)?)|(a+))+"
         print("Pattern: {}".format(pattern))
@@ -40,5 +36,3 @@ class TestLexer(unittest.TestCase):
 
         for i in lexemes:
             print(i)
-
-        self.assertEqual(1, 2)

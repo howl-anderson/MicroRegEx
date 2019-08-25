@@ -47,5 +47,3 @@ class TestBrzozowski(unittest.TestCase):
         minimal_dfa = brzozowski.construct()
 
         minimal_dfa.simplify().plot("minimal_dfa")
-
-        self.assertTrue(0)
