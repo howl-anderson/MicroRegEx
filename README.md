@@ -101,3 +101,6 @@ mini_dfa.plot()
 2. 少量部分文档来自[lihao98722](https://github.com/lihao98722/)的[regular\_expression\_engine](https://github.com/lihao98722/regular_expression_engine)项目
 3. 测试数据来自[Glenn Fowler](http://www.research.att.com/~gsf/testregex/)项目的测试套装.
 4. 测试脚本修改自[regex](https://github.com/xysun/regex)项目.
+
+## 参考资料
+* [Implementing Regular Expressions](https://swtch.com/~rsc/regexp/)
