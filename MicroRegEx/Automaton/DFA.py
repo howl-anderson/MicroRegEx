@@ -64,6 +64,46 @@ class DFA:
 
         return simplified_dfa
 
+    def get_graph(self):
+        def _shape(status_):
+            if isinstance(status_, StatusSet):
+                accept = any([i.accept for i in status_])
+            else:
+                accept = status_.accept
+
+            return "doublecircle" if accept else "circle"
+
+        graph = Digraph("finite_state_machine")
+        graph.body.extend(["rankdir=LR", 'size="8,5"'])
+
+        graph.node("", label="", shape="None", color="white")
+
+        graph.node(self.start.name, shape=_shape(self.start))
+        graph.edge("", self.start.name, label="")
+
+        relation_list = []
+        status_list = [self.start]
+        work_list = [self.start]
+
+        while len(work_list):
+            current_status = work_list.pop()
+            if current_status not in self.table:
+                # this status gos no where
+                continue
+
+            for symbol, status in self.table[current_status].items():
+                if status not in status_list:
+                    status_list.append(status)
+                    work_list.append(status)
+
+                relation_item = (current_status, status, symbol)
+                if relation_item not in relation_list:
+                    graph.node(status.name, shape=_shape(status))
+                    graph.edge(current_status.name, status.name, label=symbol)
+                    relation_list.append(relation_item)
+
+        return graph
+
     def plot(self, file_name=None):
         def _shape(status_):
             if isinstance(status_, StatusSet):

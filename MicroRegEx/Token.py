@@ -6,6 +6,9 @@ class Token:
     def __str__(self):
         return "{}: {}".format(self.token, self.value)
 
+    def __repr__(self):
+        return "{}({}, value={})".format(self.__class__.__name__, self.token, self.value)
+
 
 CONCATENATE = "concatenate"
 ASTERISK = "ASTERISK"

@@ -22,6 +22,23 @@ class NFA:
                 return True
         return False
 
+    def is_accepted(self):
+        for status in self.current_status:
+            if status.accept:
+                return True
+        return False
+
+    def match_step_by_step(self, string_):
+        self.current_status = {self.start}
+        self.epsilon()
+        for char_ in string_:
+            self.translate(char_)
+            self.epsilon()
+
+            yield None
+
+        return self.is_accepted()
+
     def epsilon(self):
         self.epsilon_status = set()
         for status in self.current_status:
@@ -44,6 +61,48 @@ class NFA:
                 next_status = status.translation[char_]
                 new_status.update(next_status)
         self.current_status = new_status
+
+    def get_graph(self, current_status_list=None):
+        def _shape(status_):
+            return "doublecircle" if status_.accept else "circle"
+
+        def _fillcolor(status_):
+            return "red" if current_status_list and status_ in current_status_list else "black"
+
+        graph = Digraph("finite_state_machine")
+        graph.body.extend(["rankdir=LR", 'size="8,5"'])
+
+        graph.node("", label="", shape="None", color="white")
+
+        graph.node(self.start.name, shape=_shape(self.start))
+        graph.edge("", self.start.name, label="")
+
+        status_set = [self.start]
+        plot_set = []
+        work_list = [self.start]
+
+        while len(work_list):
+            current_status = work_list.pop()
+
+            epsilon_status = [("ϵ", i) for i in current_status.epsilon]
+            translation_status = []
+            for k, v in current_status.translation.items():
+                translation = zip([k] * len(v), v)
+                translation_status.extend(translation)
+
+            for symbol, status in epsilon_status + translation_status:
+                if status not in status_set:
+                    work_list.append(status)
+                    status_set.append(status)
+
+                plot_item = (current_status, status, symbol)
+                if plot_item not in plot_set:
+                    graph.node(status.name, shape=_shape(status), fontcolor=_fillcolor(status), color=_fillcolor(status))
+                    graph.edge(current_status.name, status.name, label=symbol)
+
+                    plot_set.append(plot_item)
+
+        return graph
 
     def plot(self, file_name=None):
         def _shape(status_):
