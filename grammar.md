@@ -6,25 +6,19 @@ expression: pattern;
 
 pattern: subpattern postpattern;
 
-postpattern: '|' subpattern postpattern
-           | ϵ
-           ;
+postpattern: none_empty_postpattern | ϵ;
+           
+none_empty_postpattern: '|' subpattern postpattern;
 
 subpattern: element other;
 
-other: subpattern
-     | ϵ
-     ;
+other: subpattern | ϵ;
 
 element: atom meta_character;
 
-meta_character: '?'
-              | '+'
-              | '*'
-              | ϵ
-              ;
+meta_character: '?' | '+' | '*' | ϵ;
 
-atom: '(' pattern ')'
-    | character
-    ;
+atom: atom_pattern | CHARACTER;
+    
+atom_pattern: '(' pattern ')';
 ```

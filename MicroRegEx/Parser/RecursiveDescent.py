@@ -24,6 +24,11 @@ class RecursiveDescent(object):
         return False
 
     def term(self, token):
+        """
+        used to check current token is some specific token
+        :param token: str
+        :return:
+        """
         if self.token_index >= len(self.token):
             return False
 
@@ -37,36 +42,60 @@ class RecursiveDescent(object):
         return False
 
     def expression(self):
+        """
+        BNF > expression: pattern;
+        """
         return self.pattern()
 
     def pattern(self):
+        """
+        BNF > pattern: subpattern postpattern;
+        """
         return self.subpattern() and self.postpattern()
 
     def subpattern(self):
+        """
+        BNF > subpattern: element other;
+        """
         return self.element() and self.other()
 
     def element(self):
+        """
+        BNF > element: atom meta_character;
+        """
         return self.atom() and self.meta_character()
 
     def atom(self):
+        """
+        BNF > atom: atom_pattern | character;
+        """
         save_point = self.token_index
-        if self.atom_1():
+        if self.atom_pattern():
             return True
         else:
             self.token_index = save_point
-            return self.atom_2()
+            return self.character()
 
-    def atom_1(self):
+    def atom_pattern(self):
+        """
+        BNF > atom_pattern: '(' pattern ')';
+        """
         return (
             self.term(OPEN_PARENTHESIS)
             and self.pattern()
             and self.term(CLOSE_PARENTHESIS)
         )
 
-    def atom_2(self):
+    def character(self):
+        """
+        represent ordinal character (not meta character)
+        """
         return self.term(CHARACTER)
 
     def other(self):
+        """
+        BNF > other: subpattern | ϵ;
+        """
         save_point = self.token_index
         if self.subpattern():
             self.token_postfix.append(Token(CONCATENATE))
@@ -77,6 +106,9 @@ class RecursiveDescent(object):
             return True
 
     def meta_character(self):
+        """
+        BNF > meta_character: '?' | '+' | '*' | ϵ;
+        """
         save_point = self.token_index
         if self.term(QUESTION):
             self.token_postfix.append(Token(QUESTION))
@@ -97,15 +129,21 @@ class RecursiveDescent(object):
                     return True
 
     def postpattern(self):
+        """
+        BNF > postpattern: none_empty_postpattern | ϵ ;
+        """
         save_point = self.token_index
-        if self.postpattern_1():
+        if self.none_empty_postpattern():
             return True
         else:
             self.token_index = save_point
             # do nothing for epsilon expression
             return True
 
-    def postpattern_1(self):
+    def none_empty_postpattern(self):
+        """
+        BNF > none_empty_postpattern: '|' subpattern postpattern;
+        """
         result = self.term(BAR) and self.subpattern() and self.postpattern()
         if result:
             self.token_postfix.append(Token(BAR))
