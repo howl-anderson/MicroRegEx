@@ -89,6 +89,9 @@ mini_dfa.plot()
 绘制结果如下:
 ![DFA_mini](img/dfa_mini.png)
 
+## 深入理解 MicroRegEx 的原理
+为了更好的理解 MicroRegEx 是如何工作的，我提供了一个 [Jupyter Notebook](example/explain_code.ipynb)，用户可以按照其中的指引，一步一步的探索 MicroRegEx 的底层原理。
+
 ## 测试
 通过了包含 64 个测试样例的测试数据的测试。
 运行测试请执行 `python ./testing.py`

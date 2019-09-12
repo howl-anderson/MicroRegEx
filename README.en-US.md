@@ -89,6 +89,9 @@ mini_dfa.plot()
 will plot graph as fellow:
 ![DFA_mini](img/dfa_mini.png)
 
+## Understand MicroRegEx
+To better understand how MicroRegEx works, I have provided a [Jupyter Notebook](example/explain_code.ipynb) that allows the user to gradually explore the underlying principles of MicroRegEx.
+
 ## Test
 Test pass by a test data set which contains 64 examples. Please run `python ./testing.py` for a detailed test.
 
