@@ -90,7 +90,8 @@ mini_dfa.plot()
 ![DFA_mini](img/dfa_mini.png)
 
 ## 测试
-通过了包含 64 个测试样例的测试数据的测试
+通过了包含 64 个测试样例的测试数据的测试。
+运行测试请执行 `python ./testing.py`
 
 ## License
 

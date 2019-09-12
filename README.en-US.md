@@ -90,7 +90,7 @@ will plot graph as fellow:
 ![DFA_mini](img/dfa_mini.png)
 
 ## Test
-Test pass by a test data set which contains 64 examples
+Test pass by a test data set which contains 64 examples. Please run `python ./testing.py` for a detailed test.
 
 ## License
 
