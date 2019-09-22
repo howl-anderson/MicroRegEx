@@ -10,6 +10,11 @@ class NFA:
         self.current_status = set()
         self.epsilon_status = set()
 
+    def reset(self):
+        # reset status to very beginning
+        self.current_status = set()
+        self.epsilon_status = set()
+
     def match(self, string_):
         self.current_status = {self.start}
         self.epsilon()
